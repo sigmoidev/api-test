@@ -14,7 +14,23 @@ pipeline {
                     bat 'mvn clean install -s settings.xml'
                 }
             }
+
         }
+        stage('Test') {
+            steps {
+                script {
+                    bat 'mvn test'
+                    junit 'target/surfire-reports/*.xml'
+                    cumcumber reportTitle: 'Cucumber Report',
+                    fileIncludePattern: 'target/example-report.json',
+                }
+            }
+        }
+
+
+
+
+
         stage('Deploy') {
 
 
