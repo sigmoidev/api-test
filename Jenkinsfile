@@ -34,6 +34,31 @@ pipeline {
             }
         }
 
+ stage('Documentation') {
+            steps {
+                script {
+                    // Generate documentation (e.g., using Javadoc or a similar tool)
+                    echo 'Generating documentation...'
+                    // Replace with actual command to generate docs
+                    sh 'mvn javadoc:javadoc'
+                }
+                // Archive the generated documentation
+                archiveArtifacts artifacts: '**/target/site/apidocs/**', fingerprint: true
+            }
+        }
+        stage('Archive') {
+            steps {
+                // Archive the artifacts from the build
+                echo 'Archiving artifacts...'
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+            }
+        }
+
+
+
+
+
+
         stage('Deploy') {
             steps {
                 script {
