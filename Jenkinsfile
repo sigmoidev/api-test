@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/sigmoidev/deploy-api.git'
+                checkout scm
             }
         }
         stage('Build') {
