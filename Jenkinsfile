@@ -26,13 +26,13 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                script {
-                    bat 'mvn deploy'
-                }
-            }
-        }
+//        stage('Deploy') {
+//            steps {
+//                script {
+//                    bat 'mvn deploy'
+//                }
+//            }
+//        }
     }
 
 
