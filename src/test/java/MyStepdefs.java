@@ -3,6 +3,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+
+/***/g
 public class MyStepdefs {
     int result;
     @Given("I have a calculator")
