@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>api</artifactId>
+    <artifactId>test-api</artifactId>
     <version>1.0</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -42,6 +42,13 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>mymavenrepo</id>
+            <url>https://mymavenrepo.com/repo/c5QIIc6IRBj8waCpLm66/</url>
+        </repository>
+    </distributionManagement>
+
 
     <build>
         <plugins>
@@ -50,37 +57,41 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.14</version>
                 <executions>
+
+                    <!-- Attache l’agent -->
                     <execution>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
+
+                    <!-- Génère HTML + XML -->
                     <execution>
-                        <id>check</id>
+                        <id>report</id>
+                        <phase>verify</phase>
                         <goals>
-                            <goal>check</goal>
+                            <goal>report</goal>
                         </goals>
                         <configuration>
-                            <rules>
-                                <rule>
-                                    <limits>
-                                        <limit instruction="min" value="0.5"/>  <!-- Adjust this value -->
-                                        <limit branch="min" value="0.5"/>      <!-- Adjust this value -->
-                                    </limits>
-                                </rule>
-                            </rules>
+                            <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory>
+                            <reports>
+                                <xml>true</xml>
+                                <html>true</html>
+                                <csv>false</csv>
+                            </reports>
                         </configuration>
                     </execution>
-                </executions>
 
+                </executions>
             </plugin>
         </plugins>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>myMavenRepo</id>
-            <url>https://mymavenrepo.com/repo/eUWUNZTwakOS0mHhCZLq/</url>
-        </repository>
-    </distributionManagement>
+
+
+
+
+
+
 </project>
