@@ -12,6 +12,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertArrayEquals;
 
+/*tst*/
 public class MatrixSteps {
     double det ;
     double[][] transposeMatrix ;
