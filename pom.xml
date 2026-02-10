@@ -10,9 +10,8 @@
     <distributionManagement>
         <repository>
             <id>mymavenrepo</id>
-            <url>https://mymavenrepo.com/repository/maven-releases/</url>
+            <url>https://mymavenrepo.com/repo/eUWUNZTwakOS0mHhCZLq/</url>
         </repository>
-
     </distributionManagement>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
