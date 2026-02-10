@@ -7,7 +7,13 @@
     <groupId>com.example</groupId>
     <artifactId>test-api</artifactId>
     <version>1.0</version>
-
+    <distributionManagement>
+        <repository>
+            <id>mymavenrepo</id>
+            <url>https://mymavenrepo.co/repository/maven-releases/</url>
+        </repository>
+       
+    </distributionManagement>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -42,12 +48,7 @@
         </dependency>
     </dependencies>
 
-    <distributionManagement>
-        <repository>
-            <id>mymavenrepo</id>
-            <url>https://mymavenrepo.com/repo/c5QIIc6IRBj8waCpLm66/</url>
-        </repository>
-    </distributionManagement>
+
 
 
     <build>
