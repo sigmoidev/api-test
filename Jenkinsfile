@@ -91,7 +91,7 @@ pipeline {
 
               stage('release') { steps {
               script {
-
+/*test*/
               bat """
                  curl -X POST https://api.github.com/repos/sigmoidev/api-test/releases ^
                  -H "Authorization: Bearer ${TOKEN}" ^
