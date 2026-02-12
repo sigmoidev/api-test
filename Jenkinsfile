@@ -75,13 +75,12 @@ pipeline {
 
 
             stage("slack notification") {
-                steps {
-                  bat '''
-                  curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}'
-                  ${SLACK_WEBHOOK_URL}
-                  '''
-                }
-            }
+                   steps {
+                       bat '''
+                           curl -X POST -H "Content-type: application/json" --data "{""text"":""Hello, World!""}" "%SLACK_WEBHOOK_URL%"
+                       '''
+                   }
+               }
     }
 
 
