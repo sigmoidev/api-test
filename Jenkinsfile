@@ -97,7 +97,7 @@ pipeline {
 
 
 curl -X POST https://api.github.com/repos/sigmoidev/api-test/releases \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer ${TOKEN}" \
   -H "Accept: application/vnd.github+json" \
   -H "Content-Type: application/json" \
    -d "{ ^
