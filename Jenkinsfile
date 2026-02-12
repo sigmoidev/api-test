@@ -93,8 +93,21 @@ pipeline {
               script {
 
               bat """
-                  git tag -a ${VERSION} -m "Rel ease ${VERSION}"
-                  git push origin ${VERSION}
+
+
+
+curl -X POST https://api.github.com/repos/sigmoidev/api-test/releases \
+  -H "Authorization: Bearer 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" \
+  -H "Accept: application/vnd.github+json" \
+  -H "Content-Type: application/json" \
+   -d "{ ^
+                          \\"tag_name\\": \\"%VERSION%\\", ^
+                          \\"name\\": \\"Release %VERSION%\\", ^
+                          \\"body\\": \\"Production release\\", ^
+                          \\"draft\\": false, ^
+                          \\"prerelease\\": false ^
+                      }"
+
               """
               }
               } }
