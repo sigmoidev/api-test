@@ -90,14 +90,18 @@ pipeline {
 
 
               stage('release') { steps {
+              environment {
+      GITHUB_USER = credentials('GITHUB_TOKEN')
+}
               script {
+
 /*test*/
               bat """
                  curl -X POST https://api.github.com/repos/sigmoidev/api-test/releases ^
-                 -H "Authorization: Bearer ${TOKEN}" ^
+                 -H "Authorization: Bearer $GITHUB_USER" ^
                  -H "Accept: application/vnd.github+json" ^
                  -H "Content-Type: application/json" ^
-                 -d "{\\"tag_name\\":\\"%VERSION%\\",\\"name\\":\\"Release %VERSION%\\",\\"body\\":\\"Production release\\",\\"draft\\":false,\\"prerelease\\":false}"
+                 -d "{\\"tag_name\\":\\"new%VERSION%\\",\\"name\\":\\"Release %VERSION%\\",\\"body\\":\\"Production release\\",\\"draft\\":false,\\"prerelease\\":false}"
               """
 
 
