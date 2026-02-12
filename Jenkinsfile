@@ -101,7 +101,7 @@ pipeline {
                  -H "Authorization: Bearer $GITHUB_USER" ^
                  -H "Accept: application/vnd.github+json" ^
                  -H "Content-Type: application/json" ^
-                 -d "{\\"tag_name\\":\\"new%VERSION%\\",\\"name\\":\\"Release %VERSION%\\",\\"body\\":\\"Production release\\",\\"draft\\":false,\\"prerelease\\":false}"
+                 -d "{\\"tag_name\\":\\"%VERSION%\\",\\"name\\":\\"Release %VERSION%\\",\\"body\\":\\"Production release\\",\\"draft\\":false,\\"prerelease\\":false}"
               """
 
 
