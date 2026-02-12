@@ -87,6 +87,17 @@ pipeline {
                        '''
                    }
                }
+
+
+              stage('release') { steps {
+              script {
+
+              bat """
+                  git tag -a ${VERSION} -m "Rel ease ${VERSION}"
+                  git push origin ${VERSION}
+              """
+              }
+              } }
     }
 
 
