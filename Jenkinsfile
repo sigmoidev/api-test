@@ -93,7 +93,7 @@ pipeline {
               script {
 
               bat """
-                 curl -X POST https://api.github.com/repos/issadlounis/untitled/releases ^
+                 curl -X POST https://api.github.com/repos/sigmoidev/api-test/releases ^
                  -H "Authorization: Bearer ${TOKEN}" ^
                  -H "Accept: application/vnd.github+json" ^
                  -H "Content-Type: application/json" ^
