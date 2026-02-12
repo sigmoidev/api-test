@@ -90,9 +90,7 @@ pipeline {
 
 
               stage('release') { steps {
-              environment {
-      GITHUB_USER = credentials('GITHUB_TOKEN')
-}
+             withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')])
               script {
 
 /*test*/
