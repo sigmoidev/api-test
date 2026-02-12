@@ -90,7 +90,7 @@ pipeline {
 
 
               stage('release') { steps {
-             withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')]){
+             withCredentials([string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')]){
 
 
 /*test*/
