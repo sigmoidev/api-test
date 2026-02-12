@@ -90,8 +90,8 @@ pipeline {
 
 
               stage('release') { steps {
-             withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')])
-              script {
+             withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')]){
+
 
 /*test*/
               bat """
@@ -99,7 +99,7 @@ pipeline {
                  -H "Authorization: Bearer $GITHUB_USER" ^
                  -H "Accept: application/vnd.github+json" ^
                  -H "Content-Type: application/json" ^
-                 -d "{\\"tag_name\\":\\"%VERSION%\\",\\"name\\":\\"Release %VERSION%\\",\\"body\\":\\"Production release\\",\\"draft\\":false,\\"prerelease\\":false}"
+                 -d "{\\"tag_name\\":\\"v%VERSION%\\",\\"name\\":\\"Release %VERSION%\\",\\"body\\":\\"Production release\\",\\"draft\\":false,\\"prerelease\\":false}"
               """
 
 
