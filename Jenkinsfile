@@ -7,14 +7,10 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
-            steps {
-                script {
-                    bat 'mvn clean install'
-                }
-            }
-        }
 
+
+
+/* test*/ /****/
         // Testing
         stage('Test') {
             steps {
@@ -34,6 +30,14 @@ pipeline {
             }
         }
 
+
+  stage('Build') {
+            steps {
+                script {
+                    bat 'mvn clean install'
+                }
+            }
+        }
         stage('Documentation') {
             steps {
                 script {
@@ -72,6 +76,8 @@ pipeline {
                 }
             }
         }
+
+
 
 
             stage("slack notification") {
